@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player
 {
-    // Start is called before the first frame update
-    void Start()
+    string name;
+
+    public Player(string name)
     {
-        
+        this.name = name;
     }
 
-    // Update is called once per frame
-    void Update()
+    public string getName()
     {
-        
+        return this.name;
     }
 }
