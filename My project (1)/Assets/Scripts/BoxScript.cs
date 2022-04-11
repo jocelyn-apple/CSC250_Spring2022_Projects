@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour
 {
+    public float forceMult = 200;
+    private Rigidbody rb;
     private int count;
 
     // Start is called before the first frame update
@@ -16,6 +18,7 @@ public class BoxScript : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Player"))
         {
+            CORE.display();
             count++;
             //print("cube collision enter" + count);
             if(count == 3)
@@ -25,9 +28,14 @@ public class BoxScript : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update() //kind of like a run method
     {
-
+        rb.velocity = transform.forward * Time.deltaTime * forceMult;
     }
 }

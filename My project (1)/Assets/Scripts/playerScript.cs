@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     private Player thePlayer;
-    public float speed = 2.0f;
+    public float speed = 5.0f;
     private Rigidbody rb;
     private int count = 0;
 
@@ -23,6 +23,9 @@ public class playerScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        SendMessage("display");
+        CORE.display();
+
         if(collision.gameObject.tag.Equals("Enemy"))
         {
             print("player collision enter");
